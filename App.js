@@ -10,6 +10,7 @@ export default function App() {
   const[disciplinaAluno,setDisciplinaAluno]=useState("")
   const[apresentacaoAluno,setApresentacaoAluno]=useState("")
   const[mostrarDados,setMostrarDados]=useState(false)
+  
   useEffect(() => {
     console.log("Hook executado na aplicação...");
   }, []);
@@ -18,6 +19,7 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
 
+        {/* Image do User*/}
         <Image 
           source={require("./assets/user.png")}
           style={styles.image}
@@ -53,8 +55,8 @@ export default function App() {
           onChangeText={setDisciplinaAluno}
         />
 
-        {/* Text Input da Descrição*/}
-        <Text style={styles.label}>Descrição:</Text>
+        {/* Text Input da Apresentação*/}
+        <Text style={styles.label}>Apresentação:</Text>
         <TextInput 
           placeholder='Digite uma breve apresentação'
           style={[styles.input, { height: 80 }]}
@@ -71,8 +73,8 @@ export default function App() {
 
         {mostrarDados && <RenderizarDados nomeAluno={nomeAluno} cursoAluno={cursoAluno} disciplinaAluno={disciplinaAluno} apresentacaoAluno={apresentacaoAluno}/>}
         {mostrarDados && <Text>Dados enviados com sucesso!</Text>}
-      <StatusBar style="auto" />
-    </View>
+        <StatusBar style="auto" />
+      </View>
     </SafeAreaView>
   );
 }
@@ -88,17 +90,18 @@ const styles = StyleSheet.create({
     gap: 5
   },
   image: {
+    alignSelf: 'center',
     width: 120,
     height: 120,
-    resizeMode: "contain"
+    resizeMode: 'contain'
   },
   label: {
     fontSize: 16,
     fontWeight: 'bold'
   },
   input: {
-    backgroundColor: "#eee",
-    width: "100%",
+    backgroundColor: '#eee',
+    width: '100%',
     borderRadius: 12,
     padding: 10,
   }
